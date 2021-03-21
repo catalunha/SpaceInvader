@@ -67,7 +67,6 @@ func _on_timer_move_timeout():
 
 func on_alien_destroyed(alien):
 	get_node("alien_explosion").play()
-	print(alien.name)
 	emit_signal("anemy_down",alien)
 	var alien_explosion = preload_allien_explosion.instance()
 	get_parent().add_child(alien_explosion)

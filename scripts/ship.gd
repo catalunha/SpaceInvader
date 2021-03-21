@@ -39,7 +39,8 @@ func _process(delta):
 	
 	# +++ Limitar o numero de tiros a apenas um por toque
 	count_shoot = get_tree().get_nodes_in_group("group_shoot").size()
-	if shoot and not previous_shoot and count_shoot==0:
+#	if shoot and not previous_shoot and count_shoot==0:
+	if shoot and not previous_shoot and count_shoot < 100:
 		get_node("ship_shoot").play()
 		var shot = preload_ship_shot.instance()
 		get_parent().add_child(shot)

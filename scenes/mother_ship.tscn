@@ -64,3 +64,4 @@ anims/default = SubResource( 3 )
 
 [node name="mother_ship" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+stream_paused = true

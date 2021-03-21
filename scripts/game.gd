@@ -1,10 +1,13 @@
 extends Node
 
 const extra_life_points = [100,200,400]
-var extra_life_index = 0
 
+var extra_life_index = 0
 var score = 0
 var lifes = 3
+
+signal game_over
+signal victory
 
 func _ready():
 	update_score()
@@ -19,7 +22,7 @@ func on_allien_group_anemy_down(alien):
 	score += alien.score
 	if extra_life_index<extra_life_points.size() and score >= extra_life_points[extra_life_index]:
 		lifes +=1
-		get_node("HUD/life_draw").set_lifes(lifes)
+		update_lifes()
 		extra_life_index += 1
 	update_score()
 
@@ -30,15 +33,24 @@ func on_allien_group_earth_dominated():
 	game_over()
 
 func on_allien_group_victory():
-	print('on_allien_group_victory')
-	
+	get_node("allien_group").stop_all()
+	get_node("ship").disable()
+	emit_signal("victory")
+
 func update_score():
 	get_node("HUD/score").set_text(str(score))
+
+func update_lifes():
+	get_node("HUD/life_draw").set_lifes(lifes)
+
+func update_hud():
+	update_score()
+	update_lifes()
 
 func on_ship_destroyed():
 	get_node("allien_group").stop_all()
 	lifes -= 1
-	get_node("HUD/life_draw").set_lifes(lifes)
+	update_lifes()
 	get_tree().call_group('alien_shot_group','destroy',self)
 
 func on_ship_respawn():
@@ -51,6 +63,7 @@ func on_ship_respawn():
 func game_over():
 	get_node("allien_group").stop_all()
 	get_node("ship").disable()
+	emit_signal("game_over")
 
 #func _process(delta):
 #	pass
