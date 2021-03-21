@@ -12,5 +12,4 @@ func destroy(obj):
 	if hits > 5:
 		queue_free()
 	get_node("sprite").set_frame(hits)
-	
 

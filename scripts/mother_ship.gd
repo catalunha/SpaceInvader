@@ -9,10 +9,7 @@ func _ready():
 	get_node("anime").play("default")
 	yield(get_node("anime"),"animation_finished")
 	queue_free()
-	
+
 func destroy(obj):
 	emit_signal('destroyed',self)
 	queue_free()
-
-#func _process(delta):
-#	pass
