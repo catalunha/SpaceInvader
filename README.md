@@ -23,6 +23,8 @@ E também consultando:
 
 # Agradecimentos
 
-Aos meus filhos por me conduzirem a este fantástico mundo dos Games e me permitirem aprofundar o conhecimento em computação neste ambiente.
+Aos meus filhos por sonharem e me conduzirem a este fantástico mundo dos Games e nos permitir aprofundar o conhecimento em computação.
+
+Ao Paulo Roberto Cruz, que mais uma vez com atenção, carinho e profissionalismo me apresentou uma ferramenta tão consistente para desenvolvimento dos conhecimentos de computação em familia pelo desenvolvimento de Games com a GoDot.
 
 Que Deus possa retribuir-lhes em graça, conhecimento e sabedoria.
