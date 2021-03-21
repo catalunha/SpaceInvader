@@ -1,0 +1,215 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://sprites/Ship-sheet.png" type="Texture" id=1]
+[ext_resource path="res://scripts/ship.gd" type="Script" id=2]
+[ext_resource path="res://scenes/enemie.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/allien_group.gd" type="Script" id=4]
+[ext_resource path="res://scenes/shield.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/game.gd" type="Script" id=6]
+[ext_resource path="res://fonts/PrStart.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://scenes/mother_ship.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scripts/life_draw.gd" type="Script" id=9]
+[ext_resource path="res://audios/aliens_move.wav" type="AudioStream" id=10]
+[ext_resource path="res://audios/alien_explosion.wav" type="AudioStream" id=11]
+[ext_resource path="res://audios/alien_shot.wav" type="AudioStream" id=12]
+[ext_resource path="res://audios/ship_explosion.wav" type="AudioStream" id=13]
+[ext_resource path="res://audios/ship_shoot.wav" type="AudioStream" id=14]
+
+[sub_resource type="Animation" id=1]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1, 2, 2 ]
+}
+
+[sub_resource type="DynamicFont" id=2]
+size = 8
+font_data = ExtResource( 7 )
+
+[node name="game" type="Node"]
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 304.0, 8.0 ],
+"_edit_vertical_guides_": [ 8.0, 176.0 ]
+}
+
+[node name="ship" type="Area2D" parent="."]
+position = Vector2( 88, 298 )
+collision_mask = 0
+script = ExtResource( 2 )
+
+[node name="sprite" type="Sprite" parent="ship"]
+texture = ExtResource( 1 )
+hframes = 3
+
+[node name="poly" type="CollisionPolygon2D" parent="ship"]
+visible = false
+polygon = PoolVector2Array( -7.62939e-06, -5, -8.00001, -1, -8.00001, 5, 7.99999, 5, 7.99999, -1 )
+
+[node name="anim" type="AnimationPlayer" parent="ship"]
+anims/default = SubResource( 1 )
+
+[node name="ship_shoot" type="AudioStreamPlayer" parent="ship"]
+stream = ExtResource( 14 )
+
+[node name="ship_explosion" type="AudioStreamPlayer" parent="ship"]
+stream = ExtResource( 13 )
+
+[node name="allien_group" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="timer_shot" type="Timer" parent="allien_group"]
+
+[node name="aliens" type="Node2D" parent="allien_group"]
+
+[node name="enemie3" parent="allien_group/aliens" instance=ExtResource( 3 )]
+position = Vector2( 48, 32 )
+
+[node name="enemie" parent="allien_group/aliens" instance=ExtResource( 3 )]
+position = Vector2( 32, 32 )
+
+[node name="enemie2" parent="allien_group/aliens" instance=ExtResource( 3 )]
+position = Vector2( 64, 32 )
+
+[node name="enemie4" parent="allien_group/aliens" instance=ExtResource( 3 )]
+position = Vector2( 80, 32 )
+
+[node name="enemie5" parent="allien_group/aliens" instance=ExtResource( 3 )]
+position = Vector2( 96, 32 )
+
+[node name="enemie6" parent="allien_group/aliens" instance=ExtResource( 3 )]
+position = Vector2( 112, 32 )
+
+[node name="enemie7" parent="allien_group/aliens" instance=ExtResource( 3 )]
+position = Vector2( 128, 32 )
+
+[node name="enemie8" parent="allien_group/aliens" instance=ExtResource( 3 )]
+position = Vector2( 144, 32 )
+
+[node name="enemie9" parent="allien_group/aliens" instance=ExtResource( 3 )]
+position = Vector2( 48, 48 )
+enemie_type = 1
+
+[node name="enemie10" parent="allien_group/aliens" instance=ExtResource( 3 )]
+position = Vector2( 32, 48 )
+enemie_type = 1
+
+[node name="enemie11" parent="allien_group/aliens" instance=ExtResource( 3 )]
+position = Vector2( 64, 48 )
+enemie_type = 1
+
+[node name="enemie12" parent="allien_group/aliens" instance=ExtResource( 3 )]
+position = Vector2( 80, 48 )
+enemie_type = 1
+
+[node name="enemie13" parent="allien_group/aliens" instance=ExtResource( 3 )]
+position = Vector2( 96, 48 )
+enemie_type = 1
+
+[node name="enemie14" parent="allien_group/aliens" instance=ExtResource( 3 )]
+position = Vector2( 112, 48 )
+enemie_type = 1
+
+[node name="enemie15" parent="allien_group/aliens" instance=ExtResource( 3 )]
+position = Vector2( 128, 48 )
+enemie_type = 1
+
+[node name="enemie16" parent="allien_group/aliens" instance=ExtResource( 3 )]
+position = Vector2( 144, 48 )
+enemie_type = 1
+
+[node name="enemie17" parent="allien_group/aliens" instance=ExtResource( 3 )]
+position = Vector2( 48, 64 )
+enemie_type = 0
+
+[node name="enemie18" parent="allien_group/aliens" instance=ExtResource( 3 )]
+position = Vector2( 32, 64 )
+enemie_type = 0
+
+[node name="enemie19" parent="allien_group/aliens" instance=ExtResource( 3 )]
+position = Vector2( 64, 64 )
+enemie_type = 0
+
+[node name="enemie20" parent="allien_group/aliens" instance=ExtResource( 3 )]
+position = Vector2( 80, 64 )
+enemie_type = 0
+
+[node name="enemie21" parent="allien_group/aliens" instance=ExtResource( 3 )]
+position = Vector2( 96, 64 )
+enemie_type = 0
+
+[node name="enemie22" parent="allien_group/aliens" instance=ExtResource( 3 )]
+position = Vector2( 112, 64 )
+enemie_type = 0
+
+[node name="enemie23" parent="allien_group/aliens" instance=ExtResource( 3 )]
+position = Vector2( 128, 64 )
+enemie_type = 0
+
+[node name="enemie24" parent="allien_group/aliens" instance=ExtResource( 3 )]
+position = Vector2( 144, 64 )
+enemie_type = 0
+
+[node name="timer_move" type="Timer" parent="allien_group"]
+
+[node name="timer_mother_ship" type="Timer" parent="allien_group"]
+one_shot = true
+
+[node name="timer_pause" type="Timer" parent="allien_group"]
+wait_time = 0.1
+one_shot = true
+
+[node name="aliens_move" type="AudioStreamPlayer" parent="allien_group"]
+stream = ExtResource( 10 )
+
+[node name="alien_explosion" type="AudioStreamPlayer" parent="allien_group"]
+stream = ExtResource( 11 )
+
+[node name="alien_shot" type="AudioStreamPlayer" parent="allien_group"]
+stream = ExtResource( 12 )
+
+[node name="shield_group" type="Node" parent="."]
+
+[node name="shield" parent="shield_group" instance=ExtResource( 5 )]
+position = Vector2( 40, 264 )
+
+[node name="shield2" parent="shield_group" instance=ExtResource( 5 )]
+position = Vector2( 72, 264 )
+
+[node name="shield3" parent="shield_group" instance=ExtResource( 5 )]
+position = Vector2( 104, 264 )
+
+[node name="shield4" parent="shield_group" instance=ExtResource( 5 )]
+position = Vector2( 136, 264 )
+
+[node name="mother_ship" parent="." instance=ExtResource( 8 )]
+position = Vector2( 126.6, 19.7 )
+
+[node name="HUD" type="Node" parent="."]
+
+[node name="score" type="Label" parent="HUD"]
+margin_left = 112.0
+margin_right = 176.0
+margin_bottom = 8.0
+size_flags_horizontal = 0
+custom_fonts/font = SubResource( 2 )
+text = "99999999"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="life_draw" type="Node2D" parent="HUD"]
+script = ExtResource( 9 )
+textura = ExtResource( 1 )
+[connection signal="timeout" from="allien_group/timer_shot" to="allien_group" method="_on_timer_shot_timeout"]
+[connection signal="timeout" from="allien_group/timer_move" to="allien_group" method="_on_timer_move_timeout"]
+[connection signal="timeout" from="allien_group/timer_mother_ship" to="allien_group" method="_on_timer_mother_ship_timeout"]
