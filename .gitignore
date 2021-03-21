@@ -1,0 +1,8 @@
+# Veja sobre o git pra GoDot em
+# https://docs.godotengine.org/en/stable/getting_started/workflow/project_setup/version_control_systems.html#introduction
+
+# Files to exclude from VCS
+.import/
+*.translation
+export_presets.cfg
+.mono/
