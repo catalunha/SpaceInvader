@@ -2,6 +2,10 @@ extends Node
 
 const extra_life_points = [100,200,400]
 
+#var data = {
+#
+#}
+
 var extra_life_index = 0
 var score = 0
 var lifes = 3
