@@ -31,12 +31,15 @@ func _process(delta):
 	# ---
 	
 	# +++ Parar a nave na borda do game
-	if get_global_position().x < 7 :
-		set_global_position(Vector2(7,get_global_position().y))
-	if get_global_position().x > (180-7) :
-		set_global_position(Vector2((180-7),get_global_position().y))
+#	if get_global_position().x < 7 :
+#		set_global_position(Vector2(7,get_global_position().y))
+#	if get_global_position().x > (180-7) :
+#		set_global_position(Vector2((180-7),get_global_position().y))
+	# Este codigo acima pode ser substituido pelo clamp abaixo
+#	var witdh = Globals.get('display/width') # Globals nao funcionou
+	set_global_position(Vector2(clamp(get_global_position().x,7,180-7),get_global_position().y))
 	# ---
-	
+
 	# +++ Limitar o numero de tiros a apenas um por toque
 	count_shoot = get_tree().get_nodes_in_group("group_shoot").size()
 #	if shoot and not previous_shoot and count_shoot==0:

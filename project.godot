@@ -41,6 +41,14 @@ ui_ship_shot_shoot={
  ]
 }
 
+[locale]
+
+translations=PoolStringArray( "res://resources/localization.en.translation", "res://resources/localization.pt_BR.translation" )
+translation_remaps={
+
+}
+locale_filter=[ 0, [  ] ]
+
 [rendering]
 
 environment/default_clear_color=Color( 0, 0, 0, 1 )

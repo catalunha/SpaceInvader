@@ -1,6 +1,7 @@
 extends Node
 
 const HISCORE_FILE = 'user://hiscore_file'
+# na minha maquina user é: /home/catalunha/.local/share/godot/app_userdata/spaceinvaders
 var preload_name_selector = preload("res://scenes/name_selector.tscn")
 var preload_game = preload("res://scenes/game.tscn")
 var game
@@ -19,11 +20,13 @@ var hiscores =[
 ]
 var hiscore
 func _ready():
+	load_hiscore()
 	get_node("hiscore").show_hiscores(hiscores)
 
 func _on_Button_pressed():
 	get_node("btn_new_game").hide()
 	get_node("hiscore").hide()
+	get_node("logo").hide()
 	new_game()
 
 func new_game():
@@ -49,6 +52,7 @@ func on_game_over():
 		name_selector.queue_free()
 		save_hiscore()
 
+	get_node("logo").show()
 	get_node("hiscore").show()
 	get_node("hiscore").show_hiscores(hiscores)	
 	get_node('btn_new_game').show()
@@ -73,3 +77,10 @@ func save_hiscore():
 		file.store_string(JSON.print(store_hiscore))
 		file.close()
 
+func load_hiscore():
+	var file = File.new()
+	var result =file.open(HISCORE_FILE,file.READ)
+	if result == OK:
+		var text = file.get_as_text()
+		var store_histore = JSON.parse(text)
+		hiscores = store_histore.result.hiscores
