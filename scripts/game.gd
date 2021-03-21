@@ -66,7 +66,9 @@ func on_ship_respawn():
 
 func game_over():
 	get_node("allien_group").stop_all()
+	get_node("allien_group").hide()
 	get_node("ship").disable()
+	get_node("ship").queue_free()
 	emit_signal("game_over")
 
 func set_data(value):
