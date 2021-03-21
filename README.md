@@ -27,4 +27,6 @@ Aos meus filhos por sonharem e me conduzirem a este fantástico mundo dos Games 
 
 Ao Paulo Roberto Cruz, que mais uma vez com atenção, carinho e profissionalismo me apresentou uma ferramenta tão consistente para desenvolvimento dos conhecimentos de computação em familia pelo desenvolvimento de Games com a GoDot.
 
+Ao Anderson pela qualidade do curso que tornou fácil o aprendizado e o prazer pela ferramenta.
+
 Que Deus possa retribuir-lhes em graça, conhecimento e sabedoria.
