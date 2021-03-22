@@ -5,7 +5,8 @@ const HISCORE_FILE = 'user://hiscore_file'
 var preload_name_selector = preload("res://scenes/name_selector.tscn")
 var preload_game = preload("res://scenes/game.tscn")
 var game
-
+# 33 a 126
+var password_file = [12,45,65,25,56,53,62,34,100,123,33,99,87,91]
 var hiscores =[
 	{gamer='AAA',score=400},
 	{gamer='BBB',score=300},
@@ -71,7 +72,7 @@ func on_victory():
 
 func save_hiscore():
 	var file = File.new()
-	var result =file.open(HISCORE_FILE,file.WRITE)
+	var result =file.open_encrypted_with_pass(HISCORE_FILE,file.WRITE,PoolByteArray(password_file).get_string_from_utf8())
 	if result == OK:
 		var store_hiscore = {hiscores=hiscores}
 		file.store_string(JSON.print(store_hiscore))
@@ -79,7 +80,7 @@ func save_hiscore():
 
 func load_hiscore():
 	var file = File.new()
-	var result =file.open(HISCORE_FILE,file.READ)
+	var result =file.open_encrypted_with_pass(HISCORE_FILE,file.READ,PoolByteArray(password_file).get_string_from_utf8())
 	if result == OK:
 		var text = file.get_as_text()
 		var store_histore = JSON.parse(text)
