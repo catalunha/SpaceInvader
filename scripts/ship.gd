@@ -36,7 +36,6 @@ func _process(delta):
 #	if get_global_position().x > (180-7) :
 #		set_global_position(Vector2((180-7),get_global_position().y))
 	# Este codigo acima pode ser substituido pelo clamp abaixo
-#	var witdh = Globals.get('display/width') # Globals nao funcionou
 	set_global_position(Vector2(clamp(get_global_position().x,7,180-7),get_global_position().y))
 	# ---
 
